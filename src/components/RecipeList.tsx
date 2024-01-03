@@ -1,16 +1,17 @@
 import React from "react";
 import Recipe from "./Recipe";
+// Data structure for a recipe
+import { RecipeInfo } from "../App";
 
 interface RecipeListProps {
-  ids: number[];
+  recipeList: RecipeInfo[];
 }
 
-const RecipeList: React.FC<RecipeListProps> = ({ ids }) => {
+const RecipeList: React.FC<RecipeListProps> = ({ recipeList }) => {
   return (
-    <div>
-      <p>RecipeList HHH</p>
-      {ids.map((id) => (
-        <Recipe id={id} />
+    <div className="recipeList flex">
+      {recipeList.map((recipe) => (
+        <Recipe key={recipe.id} recipe={recipe} />
       ))}
     </div>
   );

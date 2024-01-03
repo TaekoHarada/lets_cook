@@ -1,54 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+// Data structure for a recipe
+import { RecipeInfo } from "../App";
 
 interface RecipeProps {
-  id: number;
+  recipe: RecipeInfo;
 }
 
-interface RecipeInfo {
-  id: number;
-  title: string;
-  // image: string;
-  // readyInMinutes: number;
-  // sourceName: string;
-  // ingredients: string[];
-}
-
-const Recipe: React.FC<RecipeProps> = ({ id }) => {
-  const APIID = "83e687c2eaaf4604b947aa56358efd26";
-
-  // recipe information
-  const [recipe, setRecipe] = useState<RecipeInfo | null>(null);
-
-  // Get Recipe Information
-  // Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
-  async function getRecipe(id: number) {
-    try {
-      const response: Response = await fetch(
-        `https://api.spoonacular.com/recipes/${id}/information?apiKey=${APIID}`
-      );
-      if (response.ok) {
-        // return (await response.json()) as T;
-        const fetchedRecipe = await response.json();
-        setRecipe({ id: fetchedRecipe.id, title: fetchedRecipe.title });
-      } else {
-        // const errorMessage = await response.text();
-        throw new Error(response.status.toString());
-      }
-    } catch (error) {
-      console.error("ERROR", error);
-      // return error as T;
-    }
-  }
-
-  useEffect(() => {
-    getRecipe(id);
-  }, []);
-
+const Recipe: React.FC<RecipeProps> = ({ recipe }) => {
   return (
-    <div>
-      <p>{id}</p>
-      <p>{recipe?.id}</p>
-      <p>{recipe?.title}</p>
+    <div className="recipe">
+      <h2 className="recipe_title">
+        <Link to={`recipe/${recipe.id}`} state={{ recipe_id: recipe.id }}>
+          LINK
+        </Link>
+        {/* <a href="#">{recipe?.title}</a> */}
+      </h2>
+      <div>
+        <a href="#">
+          <img
+            src={recipe?.image}
+            alt={recipe?.title}
+            width="312"
+            height="231"
+          />
+        </a>
+      </div>
     </div>
   );
 };
