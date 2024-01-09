@@ -1,16 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import NavBar from "./NavBar";
 
-// These props come from App.tsx
-interface NavProps {
-  // useState in App.tsx
-  setMealType: (mealType: string) => void;
-  mealType: string;
-}
-
-const Nav: React.FC<NavProps> = ({ setMealType, mealType }) => {
+const Nav = ({ setMealType, mealType }) => {
   //Set of meal types for each nav bar
-  const mealTypesList: { key: string; value: string }[] = [
+  const mealTypesList = [
     { key: "main course", value: "Main Course" },
     { key: "side dish", value: "Side Dish" },
     { key: "dessert", value: "Dessert" },
@@ -26,11 +19,6 @@ const Nav: React.FC<NavProps> = ({ setMealType, mealType }) => {
     { key: "snack", value: "Snack" },
     { key: "drink", value: "Drink" },
   ];
-
-  useEffect(() => {
-    // Perform any side effects or logic based on state changes here
-    console.log("Meal types changed:", mealType);
-  }, [mealType]);
 
   return (
     <div className="nav flex">

@@ -22,6 +22,11 @@ body {
   color: coral;
 }
 
+.header a {
+  text-decoration: none;
+  color: coral;
+}
+
 .header {
   padding: 10px;
   align-items: center;
@@ -40,6 +45,20 @@ body {
   border-top: 1px gray solid;
   text-align: center;
   padding: 20px;
+}
+
+.footer * {
+  display: inline;
+}
+.footer img {
+  margin: 0 3px 0 20px;
+}
+.footer a {
+  text-decoration: none;
+  color: black;
+}
+.footer a:hover {
+  text-decoration: underline;
 }
 
 /* Form Area */
@@ -109,7 +128,7 @@ form div {
 }
 
 /* Main contents */
-.recipeList {
+main {
   padding: 40px 80px;
 }
 
@@ -141,4 +160,51 @@ form div {
 }
 .recipe img:hover {
   opacity: 0.5;
+}
+
+/* Recipe Detail */
+.recipeDetail h2,
+.recipeDetail h3 {
+  margin: 0;
+}
+
+.recipeDetail ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.recipeDetail li {
+  font-size: large;
+  margin-bottom: 10px;
+}
+
+.recipeDetail h2 {
+  margin-bottom: 20px;
+  border-left: 6px coral solid;
+  padding-left: 5px;
+  font-size: x-large;
+}
+
+.recipeDetail .content_top {
+  padding: 0 40px;
+}
+.recipeDetail .ingredientList {
+  margin: 0 0 30px 20px;
+}
+
+.recipeDetail .ingredientList li {
+  border-bottom: 1px gray solid;
+  padding: 0 15px;
+  width: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.recipeDetail .ingredientList li p {
+  margin: 0;
+}
+
+.recipeDetail .instructions {
+  border-top: 1px gray solid;
+  padding: 20px 40px;
 }
