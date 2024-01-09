@@ -208,3 +208,9 @@ main {
   border-top: 1px gray solid;
   padding: 20px 40px;
 }
+
+.loader {
+  opacity: 0.25;
+  transition: opacity 200ms;
+  transition-delay: 200ms;
+}

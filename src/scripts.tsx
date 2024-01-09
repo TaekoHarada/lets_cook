@@ -29,7 +29,7 @@ export async function getRecipeList(query: any) {
   try {
     //Search Recipes by Ingredients and Menu
     const response: Response = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${menu_key}&includeIngredients=${ingredient_key}&type=${mealType_key}&number=3&sort=popularity&apiKey=${APIID}`
+      `https://api.spoonacular.com/recipes/complexSearch?query=${menu_key}&includeIngredients=${ingredient_key}&type=${mealType_key}&number=8&sort=popularity&apiKey=${APIID}`
     );
     if (response.ok) {
       const jsonData = await response.json();
